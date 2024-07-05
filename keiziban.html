@@ -19,6 +19,7 @@
         <div id="postList">
             <!-- 投稿が追加される要素 -->
         </div>
+        <button id="clearPosts">履歴を消す</button>
     </section>
 
     <script>
@@ -77,7 +78,18 @@
                 postList.appendChild(postElement);
             });
         }
+
+        // 履歴を消すボタンのクリックイベント
+        document.getElementById('clearPosts').addEventListener('click', function() {
+            // ローカルストレージをクリア
+            localStorage.removeItem('posts');
+
+            // 投稿一覧をクリア
+            var postList = document.getElementById('postList');
+            postList.innerHTML = '';
+        });
     </script>
 </body>
 </html>
+
 
