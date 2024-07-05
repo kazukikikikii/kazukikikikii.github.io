@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>アバメン</title>
+        <meta name="description" content="アバターAIによる10代を対象とした相談相手">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <!--リセットCSS
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">-->
+
+        <!--オリジナルCSS-->
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+
+    <body>
+        <header>
+            <div class="menu">
+                <label for="menu_bar">メニュー</label>
+                <input type="checkbox" id="menu_bar" />
+                <ul id="links">
+                    <li><a href="">ホーム</a></li>
+                    <li><a href="">掲示板</a></li>
+                    <li><a href="">アバター</a></li>
+                    <li><a href="">お知らせ</a></li>
+                    <li><a href="">設定</a></li>
+                    <li><a href="">ログアウト</a></li>
+                    <li><a href="">世界の崩壊を阻止する</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="avatar">
+            <img src="../images/robo1.png" alt="アバター" width="45%" height="45%">
+        </div>
+
+        <div class="chat-box">
+
+            <div class="chat-container">
+                <div class="messages" id="messages"></div>
+                <div class="input-container">
+                    <input type="text" id="userInput" placeholder="Aa">
+                    <button onclick="sendMessage()">➤</button>
+                </div>
+            </div>
+
+            <script>
+                function sendMessage() {
+                    var userInput = document.getElementById('userInput').value;
+                    if (userInput.trim() === '') return;
+    
+                    var messages = document.getElementById('messages');
+    
+                    var userMessage = document.createElement('div');
+                    userMessage.classList.add('message');
+                    userMessage.innerHTML = `<p><strong>あなた:</strong> ${userInput}</p>`;
+                    messages.appendChild(userMessage);
+    
+                    document.getElementById('userInput').value = '';
+    
+                    // AIからの応答をシミュレート（ここでAPIを呼び出す）
+                    setTimeout(function() {
+                        var aiResponse = document.createElement('div');
+                        aiResponse.classList.add('message');
+                        aiResponse.innerHTML = `<p><strong>AI:</strong> お、なんや？なんかあったんか？</p>`;
+                        messages.appendChild(aiResponse);
+                        messages.scrollTop = messages.scrollHeight;
+                    }, 1000);
+                }
+            </script>
+        </div>
+
+        
+
+        
+
+    </body>
+</html>
