@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // フォームのデフォルトの送信を防ぐ
+
+            // 入力された値を取得
+            var name = document.getElementsByName('name')[0].value;
+            var message = document.getElementsByName('section')[0].value;
+
+            // 新しい投稿を作成
+            var newPost = document.createElement('div');
+            newPost.innerHTML = '<strong>' + name + '</strong>: ' + message;
+
+            // 投稿一覧のセクションに追加する
+            var postSection = document.getElementById('post-list');
+            postSection.appendChild(newPost);
+
+            // 投稿があることを示す文を非表示にする
+            document.getElementById('no-posts-message').style.display = 'none';
+
+            // フォームをリセットする
+            document.getElementById('post-form').reset();
+        }
+    </script>
+</head>
+<body>
+    <h1>掲示板</h1>
+    <section>
+        <h2>新規投稿</h2>
+        <form id="post-form" onsubmit="submitForm(event)">
+            名前:<input type="text" name="name"><br>
+            本文:<textarea name="section" rows="3"></textarea><br>
+            <button type="submit">投稿する</button>
+        </form>
+    </section>
+    <section>
+        <h2>投稿一覧</h2>
+        <div id="post-list">
+            <!-- ここに投稿が追加されます -->
+        </div>
+        <p id="no-posts-message" style="display:none;">投稿はまだありません</p>
+    </section>
+</body>
+</html>
