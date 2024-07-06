@@ -30,13 +30,13 @@
                 </ul>
             </div>
         </header>
-        <audio id="my-audio" loop>
+        <audio id="my-audio">
         <source src="sikanoko.mp3" type="audio/mpeg">
         </audio>
         <script>
             const audio = document.getElementById('my-audio');
             // 再生
-            audio.play();
+            audio.loop();
         </script>
         <div class="avatar">
             <img src="../images/robo1.png" alt="アバター" width="45%" height="45%">
