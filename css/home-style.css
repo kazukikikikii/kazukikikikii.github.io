@@ -112,7 +112,7 @@ label {
     transition: all 0.5s;
 }
 
-menu_bar:checked ~ #links li {
+.menu_bar:checked ~ #links li {
     height: 54px;
     opacity: 1;
 }
