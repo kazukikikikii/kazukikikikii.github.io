@@ -5,18 +5,15 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <audio id="bgm" controls loop src="sikanoko.mp3"></audio> 
         <script>
-                        <!--     音楽再生の関数 -->
-            function musicok(){
-                <audio controls loop src="sikanoko.mp3"></audio>            
-            }
+            let el = document.getElementById("bgm");
             function enableMute() {
                 el.muted = true;
             }
             function disableMute() {
                 el.muted = false;
             }
-            musicok();
         </script>
         <script>
             let result = confirm("bgmが自動再生されます。よろしいですか？(「はい」を選択するとbgmが再生され、「いいえ」を選択するとbgmを再生せず、このサイトを利用することが出来ます。)");
@@ -26,7 +23,6 @@
             }else{
                 disableMute();
             }
-
         </script>
             <h1>新規登録</h1>
         <form method="post" action="/sample.php" enctype="multipart/form-data">
