@@ -6,21 +6,21 @@
     </head>
     <body>
         <script>
-            let el = document.getElementById("bgm");
-            function enableMute() {
-                el.muted = true;
-            }
-            function disableMute() {
-                el.muted = false;
-            }
-        </script>
-        <script>
             let result = confirm("bgmが自動再生されます。よろしいですか？(「はい」を選択するとbgmが再生され、「いいえ」を選択するとbgmを再生せず、このサイトを利用することが出来ます。)");
             if (result){
                 enableMute();
                 }
             }else{
                 disableMute();
+            }
+        </script>
+        <script>
+            let el = document.getElementById("bgm");
+            function enableMute() {
+                el.muted = true;
+            }
+            function disableMute() {
+                el.muted = false;
             }
         </script>
         <audio id="bgm" controls loop src="sikanoko.mp3"></audio> 
