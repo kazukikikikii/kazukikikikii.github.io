@@ -38,7 +38,17 @@
             audio.play();
             audio.loop = true;
         </script>
+
+<!--アバター変更のコード -->
         <div id="avatar"></div>
+        <div id="kirikae">アバターを変更する</div>
+        <script>
+            const avatar = document.getElementById('avatar');
+            const kirikae = document.getElementById('kirikae');
+            kirikae.addEventListener('click', () => {
+            avatar.classList.toggle('boy');
+            });
+        </script>
 
         <div class="chat-box">
 
