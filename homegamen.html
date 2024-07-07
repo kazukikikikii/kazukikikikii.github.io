@@ -42,15 +42,14 @@
 
         <div class="avatar">
             <img id="imgView" src="../images/robo1.png">
-<!--             <div class="avatar1"></div>
-            <div class="kirikae">アバターを変更する</div>
             <script>
-                const avatar1 = document.getElementById('avatar1');
-                const kirikae = document.getElementById('kirikae');
-                kirikae.addEventListener('click', () => {
-                avatar1.classList.toggle('boy');
-                });
-            </script> -->
+                function henkou(){
+                    const imgElement = document.getElementById('imgView');
+                    imgElement.src = '../imagrs/boy1.png';
+                }
+            </script>
+            <button onclick="henkou()">
+
     </div>
 
         <div class="chat-box">
