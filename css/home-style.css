@@ -116,3 +116,13 @@ input checkbox {
     height: 54px;
     opacity: 1;
 }
+
+
+/*アバターの画像切り替え---------------------------*/
+
+.disp-img{
+    background-image:url(../img.jpg);             /* 画像のURLを指定       */
+    background-repeat:  no-repeat;                /* 画像の繰り返しを指定  */              
+    width:auto;                                   /* 横幅のサイズを指定    */
+    height:400pX;                                 /* 縦幅のサイズを指定    */
+}
