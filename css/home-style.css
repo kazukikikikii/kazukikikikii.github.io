@@ -117,19 +117,3 @@ input checkbox {
     opacity: 1;
 }
 
-
-/*アバターの画像切り替え---------------------------*/
-
-.avatar1{
-    background-image:url(../images/robo1.png);     /* 画像のURLを指定       */
-    background-repeat:  no-repeat;                /* 画像の繰り返しを指定  */
-    width:45%;                                   /* 横幅のサイズを指定    */
-    height:45%;                                 /* 縦幅のサイズを指定    */
-}
-
-.avatar1 boy{
-    background-image:url(../images/boy1.png);     /* 画像のURLを指定       */
-    background-repeat:  no-repeat;                /* 画像の繰り返しを指定  */
-    width:45%;                                   /* 横幅のサイズを指定    */
-    height:45%;                                 /* 縦幅のサイズを指定    */
-}
