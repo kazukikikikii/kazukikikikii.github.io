@@ -91,9 +91,9 @@ label {
     cursor :pointer;
 }
 
-/*input {
+input checkbox {
     display: none;
-}*/
+}
 
 .menu ul {
     margin: 0;
