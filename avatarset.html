@@ -3,13 +3,39 @@
 <link rel="stylesheet" href="css/home-style.css">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>アバター設定画面</title>
     <script>
-        
+        <h1>現在はまだご利用になれません。もうしばらくお待ちください。</h1>
     </script>
 </head>
 <body>
-    <h1>アバター設定</h1>
-
+    <h1>アバター設定(仮)</h1>
+    <script>
+      function avatarSelect() {
+        // let avatarSelect = document.querySelector("#avatar_select")
+        // // セレクトボックスの値を取得
+        // console.log(avatarSelect.value)
+        // // セレクトボックスの項目を取得
+        // let item = avatarSelect.options[avatarSelect.selectedIndex].innerText;
+        // console.log(item)
+        var avatarnow = document.getElementById('avatar_select');
+        avatarnow.addEventListener('change', (event) => {
+            var selectavatar = document.getElementById('selectavatar');
+            selectabatar.textContent = avatarnow.options[avatarnow.selectedIndex].value + ":" + avatarnow.options[avatarnow.selectedIndex].textContent;
+        });
+        
+      }
+    </script>
+    <form>
+        <select id="avatar_select">
+          <option value="girl1">少女１(デフォルト)</option>
+          <option value="boy1">少年１(デフォルト)</option>
+          <option value="robo1">ロボット１(デフォルト)</option>
+        </select>
+        <button type="button" onclick="avatarSelect()">セレクトボックスの値を取得!</button>
+        <br>
+        <p id="selectavatar"></p>
+      </form>
 </body>
 </html>
