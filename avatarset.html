@@ -25,9 +25,18 @@
             var selectavatar = document.getElementById('selectavatar');
             selectavatar.textContent = avatarnow.options[avatarnow.selectedIndex].value + ":" + avatarnow.options[avatarnow.selectedIndex].textContent;
         });
-        if (chara == girl1){
-            
+        var pics_src = new Array("images/girl1_normal.png","images/boy1_normal.png","images/robo1.png");
+        var num = 0;
+        if (chara == "girl1") {
+            num = 0;
         }
+        else if(chara == "boy1"){
+            num = 1;
+        }
+        else {
+            num = 2;
+        }
+        document.getElementById("mypic").src=pics_src[num];
       }
     </script>
     <form>
