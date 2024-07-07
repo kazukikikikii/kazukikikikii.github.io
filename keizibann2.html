@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+    <link rel="stylesheet" href="css/home-style.css">
+</head>
+<body>
+    <h1>~掲示板~</h1>
+    <h1>高校生の相談所</h1>
+    <section>
+        <h2>新規投稿</h2>
+        <form id="postForm" action="#" method="POST">
+            お名前:<input type="text" id="name" name="name"><br>
+            本文:<textarea id="section" name="section" rows="3"></textarea><br>
+            <button type="submit">投稿する</button>
+        </form>
+    </section>
+    <section>
+        <h2>投稿一覧</h2>
+        <div id="postList">
+            <!-- 投稿が追加される要素 -->
+        </div>
+        <button id="clearPosts">履歴を消す</button>
+    </section>
+
+    <script>
+        // ページ読み込み時に保存された投稿を表示する
+        document.addEventListener('DOMContentLoaded', function() {
+            displaySavedPosts();
+        });
+
+        // 投稿フォームが送信された時の処理
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // フォームのデフォルトの送信動作を防ぐ
+
+            // 入力値を取得
+            var name = document.getElementById('name').value;
+            var section = document.getElementById('section').value;
+
+            // 新しい投稿要素を作成
+            var newPost = document.createElement('div');
+            var postContent = '<strong>' + name + '</strong>: ' + section;
+            newPost.innerHTML = postContent;
+
+            // 投稿一覧に追加
+            var postList = document.getElementById('postList');
+            postList.appendChild(newPost);
+
+            // 入力欄をクリア
+            document.getElementById('name').value = '';
+            document.getElementById('section').value = '';
+
+            // 投稿内容をローカルストレージに保存する
+            savePostToLocalStorage(name, section);
+        });
+
+        // 投稿内容をローカルストレージに保存する関数
+        function savePostToLocalStorage(name, section) {
+            var posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+            // 新しい投稿を追加
+            posts.push({ name: name, section: section });
+
+            // ローカルストレージに保存
+            localStorage.setItem('posts', JSON.stringify(posts));
+        }
+
+        // 保存された投稿を表示する関数
+        function displaySavedPosts() {
+            var posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+            var postList = document.getElementById('postList');
+            postList.innerHTML = ''; // 一旦リセット
+
+            posts.forEach(function(post) {
+                var postElement = document.createElement('div');
+                var postContent = '<strong>' + post.name + '</strong>: ' + post.section;
+                postElement.innerHTML = postContent;
+                postList.appendChild(postElement);
+            });
+        }
+
+        // 履歴を消すボタンのクリックイベント
+        document.getElementById('clearPosts').addEventListener('click', function() {
+            // ローカルストレージをクリア
+            localStorage.removeItem('posts');
+
+            // 投稿一覧をクリア
+            var postList = document.getElementById('postList');
+            postList.innerHTML = '';
+        });
+    </script>
+    <br>
+    <section>
+        <button onclick="location.href='keiziban.html'">掲示板_みんなの相談所へ戻る</button>
+    </section>
+    <br>
+    <section>
+        <button onclick="location.href='homegamen.html'">ホームへ戻る</button>
+    </section>
+</body>
+</html>
