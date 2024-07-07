@@ -11,34 +11,6 @@
     <section>
         <h2>現在はまだご利用になれません。もうしばらくお待ちください。</h2>
     </section>
-    <script>
-      function avatarSelect() {
-        let avatarSelect = document.querySelector("#avatarnow")
-        let chara = avatarSelect.value
-        // セレクトボックスの値を取得
-        // console.log(avatarSelect.value)
-        // // セレクトボックスの項目を取得
-        // let item = avatarSelect.options[avatarSelect.selectedIndex].innerText;
-        // console.log(item)
-        var avatarnow = document.getElementById('avatarnow');
-        avatarnow.addEventListener('change', (event) => {
-            var selectavatar = document.getElementById('selectavatar');
-            selectavatar.textContent = avatarnow.options[avatarnow.selectedIndex].value + ":" + avatarnow.options[avatarnow.selectedIndex].textContent;
-        });
-        var pics_src = new Array("images/girl1_normal.png","images/boy1_normal.png","images/robo1.png");
-        var num = 0;
-        if (chara == "girl1") {
-            num = 0;
-        }
-        else if(chara == "boy1"){
-            num = 1;
-        }
-        else {
-            num = 2;
-        }
-        document.getElementById("mypic").src=pics_src[num];
-      }
-    </script>
     <form>
         <select id="avatarnow" name="avatarnow">
           <option value="girl1">少女１(デフォルト)</option>
@@ -47,6 +19,34 @@
         </select>
         <button type="button" onclick="avatarSelect()">セレクトボックスの値を取得!</button>
         <br>
+        <script>
+          function avatarSelect() {
+            let avatarSelect = document.querySelector("#avatarnow")
+            let chara = avatarSelect.value
+            // セレクトボックスの値を取得
+            // console.log(avatarSelect.value)
+            // // セレクトボックスの項目を取得
+            // let item = avatarSelect.options[avatarSelect.selectedIndex].innerText;
+            // console.log(item)
+            var avatarnow = document.getElementById('avatarnow');
+            avatarnow.addEventListener('change', (event) => {
+                var selectavatar = document.getElementById('selectavatar');
+                selectavatar.textContent = avatarnow.options[avatarnow.selectedIndex].value + ":" + avatarnow.options[avatarnow.selectedIndex].textContent;
+            });
+            var pics_src = new Array("images/girl1_normal.png","images/boy1_normal.png","images/robo1.png");
+            var num = 0;
+            if (chara == "girl1") {
+                num = 0;
+            }
+            else if(chara == "boy1"){
+                num = 1;
+            }
+            else {
+                num = 2;
+            }
+            document.getElementById("mypic").src=pics_src[num];
+          }
+        </script>
         <p id="selectavatar"></p>
       </form>
 </body>
