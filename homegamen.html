@@ -41,45 +41,8 @@
 
 
         <div class="avatar">
-            <img id="imgView" src="images/girl1_normal.png" onclick="switchImage(this)" alt="画像1">
-            <script>
-                function henkou(img){
-                    if (img.src.match(/images\girl1_normal.png/)) {
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/boy1_normal.png';
-                    }
-                    else if(img.src.match(/images\girl1_smile.png/)){
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/boy1_normal.png';
-                    }
-                    else if(img.src.match(/images\girl1_upset.png/)){
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/boy1_normal.png';
-                    }
-                    else if(img.src.match(/images\girl1_cry.png/)){
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/boy1_normal.png';
-                    }
-                    else if(img.src.match(/images\boy1_normal.png/)){
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/girl1_normal.png';
-                    }
-                        else if(img.src.match(/images\boy1_smile.png/)){
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/girl1_normal.png';
-                    }
-                    else if(img.src.match(/images\boy1_upset.png/)){
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/girl1_normal.png';
-                    }
-                    else if(img.src.match(/images\boy1_cry.png/)){
-                        const imgElement = document.getElementById('imgView');
-                        imgElement.src = 'images/girl1_normal.png';
-                    }
-                    else {
-                    }
-                }
-            </script>
+            <img id="mypic" onclick="slideshow()" src="images/girl1_normal.png">
+            <script src="imghenka.js"></script>
             <button onclick="henkou()">アバターを変更する</button>
         </div>
 
