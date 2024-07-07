@@ -7,7 +7,7 @@ html{
 
 /*アバター-----------------------------*/
 .avatar{
-    background-image:url();     /* 画像のURLを指定       */
+    background-image:url(../images/robo1.png);     /* 画像のURLを指定       */
     text-align: center;
     margin-top: 50px;
 }
@@ -121,7 +121,7 @@ input checkbox {
 
 /*アバターの画像切り替え---------------------------*/
 
-.disp-img{
+.avatar #boy{
     background-image:url(../images/boy1.png);     /* 画像のURLを指定       */
     text-align: center;
     margin-top: 50px;
