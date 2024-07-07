@@ -6,12 +6,9 @@ html{
 }
 
 /*アバター-----------------------------*/
-#avatar{
-    background-image:url(../images/robo1.png);     /* 画像のURLを指定       */
+.avatar{
     text-align: center;
     margin-top: 50px;
-    width:45%;                                   /* 横幅のサイズを指定    */
-    height:45%;                                 /* 縦幅のサイズを指定    */
 }
 
 /*チャット欄-----------------------------*/
@@ -123,10 +120,14 @@ input checkbox {
 
 /*アバターの画像切り替え---------------------------*/
 
-#avatar.boy{
+#avatar1{
+    background-image:url(../images/robo1.png);     /* 画像のURLを指定       */
+    width:45%;                                   /* 横幅のサイズを指定    */
+    height:45%;                                 /* 縦幅のサイズを指定    */
+}
+
+#avatar1.boy{
     background-image:url(../images/boy1.png);     /* 画像のURLを指定       */
-    text-align: center;
-    margin-top: 50px;
     width:45%;                                   /* 横幅のサイズを指定    */
     height:45%;                                 /* 縦幅のサイズを指定    */
 }
