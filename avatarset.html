@@ -13,8 +13,9 @@
     </section>
     <script>
       function avatarSelect() {
-        // let avatarSelect = document.querySelector("#avatar_select")
-        // // セレクトボックスの値を取得
+        let avatarSelect = document.querySelector("#avatarnow")
+        let chara = avatarSelect.value
+        // セレクトボックスの値を取得
         // console.log(avatarSelect.value)
         // // セレクトボックスの項目を取得
         // let item = avatarSelect.options[avatarSelect.selectedIndex].innerText;
@@ -24,6 +25,9 @@
             var selectavatar = document.getElementById('selectavatar');
             selectavatar.textContent = avatarnow.options[avatarnow.selectedIndex].value + ":" + avatarnow.options[avatarnow.selectedIndex].textContent;
         });
+        if (chara == girl1){
+            
+        }
       }
     </script>
     <form>
