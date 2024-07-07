@@ -10,3 +10,14 @@ function slideshow(){
     }
     document.getElementById("mypic").src=pics_src[num];
 }
+
+function henkou(){
+    if (num < 4){
+        num = 4;
+        document.getElementById("mypic").src=pics_src[num];
+    }
+    else{
+        num = 0;
+        document.getElementById("mypic").src=pics_src[num];
+    }
+}
