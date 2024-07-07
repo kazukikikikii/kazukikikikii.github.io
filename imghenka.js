@@ -1,66 +1,12 @@
-function switchImage(img) {
-// 画像を切り替える処理
-    if (img.src.match(../images\girl1_normal.png/)) {
-        img.src = "../images/girl1_smile.png";
-    }
-    else if(img.src.match(../images\girl1_smile.png/)){
-        img.src = "../images/girl1_upset.png";
-    }
-    else if(img.src.match(../images\girl1_upset.png/)){
-        img.src = "../images/girl1_cry.png";
-    }
-    else if(img.src.match(../images\girl1_cry.png/)){
-        img.src = "../images/girl1_normal.png";
-    }
-    else if(img.src.match(../images\boy1_normal.png/)){
-        img.src = "../images/boy1_smile.png";
-    }
-    else if(img.src.match(../images\boy1_smile.png/)){
-        img.src = "../images/boy1_upset.png";
-    }
-    else if(img.src.match(../images\boy1_upset.png/)){
-        img.src = "../images/boy1_cry.png";
-    }
-    else if(img.src.match(../images\boy1_cry.png/)){
-        img.src = "../images/boy1_normal.png";
+var pics_src = new Array("images/girl1_normal.png","images/girl1_smile.png","images/girl1_upset.png","images/girl1_cry.png","images/boy1_normal.png","images/boy1_smile.png","images/boy1_upset.png","images/boy1_cry.png");
+var num = 0;
+
+function slideshow(){
+    if (num == 7) {
+        num = 0;
     }
     else {
-        img.src = "image1.jpg"
+        num ++;
     }
-  }
-function henkou(img){
-    if (img.src.match(../images\girl1_normal.png/)) {
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/boy1_normal.png';
-    }
-    else if(img.src.match(../images\girl1_smile.png/)){
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/boy1_normal.png';
-    }
-    else if(img.src.match(../images\girl1_upset.png/)){
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/boy1_normal.png';
-    }
-    else if(img.src.match(../images\girl1_cry.png/)){
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/boy1_normal.png';
-    }
-    else if(img.src.match(../images\boy1_normal.png/)){
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/girl1_normal.png';
-    }
-        else if(img.src.match(../images\boy1_smile.png/)){
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/girl1_normal.png';
-    }
-    else if(img.src.match(../images\boy1_upset.png/)){
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/girl1_normal.png';
-    }
-    else if(img.src.match(../images\boy1_cry.png/)){
-        const imgElement = document.getElementById('imgView');
-        imgElement.src = '../images/girl1_normal.png';
-    }
-    else {
-    }
-  }
+    document.getElementById("mypic").src=pics_src[num];
+}
