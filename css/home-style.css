@@ -91,7 +91,7 @@ label {
     cursor :pointer;
 }
 
-input[type = checkbox].menu_bar{
+input[type = checkbox]{
     display: none;
 }
 
