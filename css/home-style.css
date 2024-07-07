@@ -91,9 +91,9 @@ label {
     cursor :pointer;
 }
 
-input {
+/*input {
     display: none;
-}
+}*/
 
 .menu ul {
     margin: 0;
