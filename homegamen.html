@@ -33,14 +33,14 @@
         <audio id="my-audio">
         <source src="musics/kirei.mp3" type="audio/mpeg">
         </audio>
-        <div id="text-button" onclick="audioplay()">bgmを再生</div>
-        <script>
-            function audioplay(){
-                const audio = document.getElementById('my-audio');
-                audio.play();
-                audio.loop = true;
-            }
-        </script>
+        <button onclick="audioplay()">bgmを再生</button>
+            <script>
+                function audioplay(){
+                    const audio = document.getElementById('my-audio');
+                    audio.play();
+                    audio.loop = true;
+                }
+            </script>
 
 
         <div class="avatar">
