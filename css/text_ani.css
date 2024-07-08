@@ -1,7 +1,7 @@
 .anim-box {
-  background: linear-gradient(to right, #362ae0 0%,#3b79cc 50%,#42d3ed 100%);
+  background: linear-gradient(to right, #f0ae22 0%,#eecb6a 50%,#ccca71 100%);
   border-radius: 5px;
-  max-width: 400px;
+  max-width: 100%;
   height: 250px;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
 .text_e{
   color: brown;
   text-align: center;
-  font-size: larger;
+  font-size: xx-large;
   font-family: 'Caveat', cursive;
 }
 .text_ja{
@@ -19,7 +19,7 @@
 }
 
 .anim-box.fadein.is-animated {
-  animation: fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation: fadeIn 1.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
  
 @keyframes fadeIn {
@@ -29,6 +29,10 @@
   100% {
     opacity: 1;
   }
+}
+
+body{
+  text-align: center;
 }
 
 @font-face {
