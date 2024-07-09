@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>入力ページ</title>
+</head>
+<body>
+    <h1>アカウント設定の変更</h1>
+    <form id="userInfoForm">
+        <label for="name">名前:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="age">年齢:</label>
+        <input type="text" id="age" name="age"><br><br>
+        
+        <label for="hobby">趣味:</label>
+        <input type="text" id="hobby" name="hobby"><br><br>
+        
+        <label for="origin">出身:</label>
+        <input type="text" id="origin" name="origin"><br><br>
+        
+        <label for="quote">一言:</label>
+        <input type="text" id="quote" name="quote"><br><br>
+        
+        <button type="button" onclick="saveData()">変更</button>
+    </form>
+    
+    <br>
+    <a href="accountset.html">変更しない</a>
+
+    <script>
+        function saveData() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const hobby = document.getElementById('hobby').value;
+            const origin = document.getElementById('origin').value;
+            const quote = document.getElementById('quote').value;
+            
+            localStorage.setItem('name', name);
+            localStorage.setItem('age', age);
+            localStorage.setItem('hobby', hobby);
+            localStorage.setItem('origin', origin);
+            localStorage.setItem('quote', quote);
+            
+            alert('変更しました！');
+            window.location.href = "accountset.html";
+        }
+    </script>
+</body>
+</html>
