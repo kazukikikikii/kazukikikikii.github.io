@@ -34,14 +34,30 @@
             <div class="box-title">プロフィール</div>
             <div class="profile_center">
             <img src="../images/acount.png" alt="アカウント画像">
-            <div class="profile_name">名前</div></div>
-            <p>自己紹介文</p>
-            <ul>
-            <li>性別：</li>
-            <li>出身地：</li>
-            <li>趣味：</li>
-            </ul>
-            </div>
+
+
+        <!--ここから変更したのでヨロ-->
+            <p><strong>名前:</strong> <span id="name"></span></p>
+            <p><strong>年齢:</strong> <span id="age"></span></p>
+            <p><strong>趣味:</strong> <span id="hobby"></span></p>
+            <p><strong>出身:</strong> <span id="origin"></span></p>
+            <p><strong>一言:</strong> <span id="quote"></span></p>
+
+            <br>
+            <a href="accountset_2.html">入力する</a>
+
+            <script>
+                document.getElementById('name').textContent = localStorage.getItem('name');
+                document.getElementById('age').textContent = localStorage.getItem('age');
+                document.getElementById('hobby').textContent = localStorage.getItem('hobby');
+                document.getElementById('origin').textContent = localStorage.getItem('origin');
+                document.getElementById('quote').textContent = localStorage.getItem('quote');
+
+                const quote = localStorage.getItem('quote');
+                document.getElementById('quote').textContent = quote ? quote : "よろしくお願いします！";
+            </script>
+
+
         </div>
 
     </section>
