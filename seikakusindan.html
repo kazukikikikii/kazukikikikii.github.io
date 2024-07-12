@@ -6,7 +6,9 @@
     <title>性格診断アンケート</title>
     <style>
         body {
-            fsize;
+            font-family: Arial, sans-serif;
+            background-color: #cac363;
+            text-align: center;
         }
         .question {
             margin-bottom: 20px;
@@ -20,6 +22,13 @@
         .submit-button {
             text-align: center;
         }
+        button {
+            margin-top: 20px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -29,76 +38,81 @@
             <p>1. 休日は家でゆっくりしたいタイプだ</p>
             <div class="options">
                 <input type="radio" id="q1a" name="q1" value="apply" required>
-                <label for="q1a">あてはまる</label>
+                <label for="q1a">あてはまる</label><br>
                 <input type="radio" id="q1b" name="q1" value="somewhat apply" required>
-                <label for="q1b">ややあてはまる</label>
+                <label for="q1b">ややあてはまる</label><br>
                 <input type="radio" id="q1c" name="q1" value="somewhat not apply" required>
-                <label for="q1c">ややあてはまらない</label>
+                <label for="q1c">ややあてはまらない</label><br>
                 <input type="radio" id="q1d" name="q1" value="not apply" required>
                 <label for="q1d">あてはまらない</label>
             </div>
         </div>
 
         <div class="question">
-            <p>2.エネルギーの方向は外向きである </p>
+            <p>2. エネルギーの方向は外向きである</p>
             <div class="options">
                 <input type="radio" id="q2a" name="q2" value="apply" required>
-                <label for="q2a">当てはまる</label>
+                <label for="q2a">あてはまる</label><br>
                 <input type="radio" id="q2b" name="q2" value="somewhat apply" required>
-                <label for="q2b">ややあてはまる</label>
+                <label for="q2b">ややあてはまる</label><br>
                 <input type="radio" id="q2c" name="q2" value="somewhat not apply" required>
-                <label for="q1c">ややあてはまらない</label>
+                <label for="q2c">ややあてはまらない</label><br>
                 <input type="radio" id="q2d" name="q2" value="not apply" required>
-                <label for="q1d">あてはまらない</label>
+                <label for="q2d">あてはまらない</label>
             </div>
         </div>
 
         <div class="question">
-            <p>3.ものごとは直感的に決めるたちだ</p>
+            <p>3. ものごとは直感的に決めるたちだ</p>
             <div class="options">
                 <input type="radio" id="q3a" name="q3" value="apply" required>
-                <label for="q3a">当てはまる</label>
+                <label for="q3a">あてはまる</label><br>
                 <input type="radio" id="q3b" name="q3" value="somewhat apply" required>
-                <label for="q3b">ややあてはまる</label>
+                <label for="q3b">ややあてはまる</label><br>
                 <input type="radio" id="q3c" name="q3" value="somewhat not apply" required>
-                <label for="q1c">ややあてはまらない</label>
+                <label for="q3c">ややあてはまらない</label><br>
                 <input type="radio" id="q3d" name="q3" value="not apply" required>
-                <label for="q1d">あてはまらない</label>
+                <label for="q3d">あてはまらない</label>
             </div>
         </div>
 
         <div class="question">
-            <p>4.得た経験は好き、嫌いなどの気持ちで捉えるタイプだ</p>
+            <p>4. 得た経験は好き、嫌いなどの気持ちで捉えるタイプだ</p>
             <div class="options">
                 <input type="radio" id="q4a" name="q4" value="apply" required>
-                <label for="q4a">当てはまる</label>
+                <label for="q4a">あてはまる</label><br>
                 <input type="radio" id="q4b" name="q4" value="somewhat apply" required>
-                <label for="q4b">ややあてはまる</label>
+                <label for="q4b">ややあてはまる</label><br>
                 <input type="radio" id="q4c" name="q4" value="somewhat not apply" required>
-                <label for="q1c">ややあてはまらない</label>
+                <label for="q4c">ややあてはまらない</label><br>
                 <input type="radio" id="q4d" name="q4" value="not apply" required>
-                <label for="q1d">あてはまらない</label>
+                <label for="q4d">あてはまらない</label>
             </div>
         </div>
 
         <div class="question">
-            <p>5.その場その場で対応するよりは順を追って話をするタイプだ</p>
+            <p>5. その場その場で対応するよりは順を追って話をするタイプだ</p>
             <div class="options">
                 <input type="radio" id="q5a" name="q5" value="apply" required>
-                <label for="q5a">当てはまる</label>
+                <label for="q5a">あてはまる</label><br>
                 <input type="radio" id="q5b" name="q5" value="somewhat apply" required>
-                <label for="q5b">ややあてはまる</label>
-                <input type="radio" id="q1c" name="q1" value="somewhat not apply" required>
-                <label for="q1c">ややあてはまらない</label>
-                <input type="radio" id="q1d" name="q1" value="not apply" required>
-                <label for="q1d">あてはまらない</label>
+                <label for="q5b">ややあてはまる</label><br>
+                <input type="radio" id="q5c" name="q5" value="somewhat not apply" required>
+                <label for="q5c">ややあてはまらない</label><br>
+                <input type="radio" id="q5d" name="q5" value="not apply" required>
+                <label for="q5d">あてはまらない</label>
             </div>
+        </div>
+
+        <div class="submit-button">
+            <button type="submit">送信</button>
+        </div>
     </form>
- <div>
-      <button onclick="location.href='homegamen.html'">送信</button>
-</div>
- <div>
-      <button onclick="location.href='weeklyfeedback.html'">週間フィードバック</button>
-</div>
+    <div>
+        <button onclick="location.href='homegamen.html'">ホーム画面</button>
+    </div>
+    <div>
+        <button onclick="location.href='weeklyfeedback.html'">週間フィードバック</button>
+    </div>
 </body>
 </html>
