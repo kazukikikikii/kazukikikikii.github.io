@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性格診断アンケート</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cac363;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            margin: 0;
+        }
+        .options {
+            margin-left: 20px;
+            text-align: left;
+        }
+        .submit-button {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>性格診断アンケート</h1>
+        <form id="surveyForm">
+            <div class="question">
+                <p>1. 休日は家でゆっくりしたいタイプだ</p>
+                <div class="options">
+                    <input type="radio" id="q1a" name="q1" value="apply" required>
+                    <label for="q1a">あてはまる</label><br>
+                    <input type="radio" id="q1b" name="q1" value="somewhat apply" required>
+                    <label for="q1b">ややあてはまる</label><br>
+                    <input type="radio" id="q1c" name="q1" value="somewhat not apply" required>
+                    <label for="q1c">ややあてはまらない</label><br>
+                    <input type="radio" id="q1d" name="q1" value="not apply" required>
+                    <label for="q1d">あてはまらない</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. エネルギーの方向は外向きである</p>
+                <div class="options">
+                    <input type="radio" id="q2a" name="q2" value="apply" required>
+                    <label for="q2a">あてはまる</label><br>
+                    <input type="radio" id="q2b" name="q2" value="somewhat apply" required>
+                    <label for="q2b">ややあてはまる</label><br>
+                    <input type="radio" id="q2c" name="q2" value="somewhat not apply" required>
+                    <label for="q2c">ややあてはまらない</label><br>
+                    <input type="radio" id="q2d" name="q2" value="not apply" required>
+                    <label for="q2d">あてはまらない</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. ものごとは直感的に決めるたちだ</p>
+                <div class="options">
+                    <input type="radio" id="q3a" name="q3" value="apply" required>
+                    <label for="q3a">あてはまる</label><br>
+                    <input type="radio" id="q3b" name="q3" value="somewhat apply" required>
+                    <label for="q3b">ややあてはまる</label><br>
+                    <input type="radio" id="q3c" name="q3" value="somewhat not apply" required>
+                    <label for="q3c">ややあてはまらない</label><br>
+                    <input type="radio" id="q3d" name="q3" value="not apply" required>
+                    <label for="q3d">あてはまらない</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. 得た経験は好き、嫌いなどの気持ちで捉えるタイプだ</p>
+                <div class="options">
+                    <input type="radio" id="q4a" name="q4" value="apply" required>
+                    <label for="q4a">あてはまる</label><br>
+                    <input type="radio" id="q4b" name="q4" value="somewhat apply" required>
+                    <label for="q4b">ややあてはまる</label><br>
+                    <input type="radio" id="q4c" name="q4" value="somewhat not apply" required>
+                    <label for="q4c">ややあてはまらない</label><br>
+                    <input type="radio" id="q4d" name="q4" value="not apply" required>
+                    <label for="q4d">あてはまらない</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. その場その場で対応するよりは順を追って話をするタイプだ</p>
+                <div class="options">
+                    <input type="radio" id="q5a" name="q5" value="apply" required>
+                    <label for="q5a">あてはまる</label><br>
+                    <input type="radio" id="q5b" name="q5" value="somewhat apply" required>
+                    <label for="q5b">ややあてはまる</label><br>
+                    <input type="radio" id="q5c" name="q5" value="somewhat not apply" required>
+                    <label for="q5c">ややあてはまらない</label><br>
+                    <input type="radio" id="q5d" name="q5" value="not apply" required>
+                    <label for="q5d">あてはまらない</label>
+                </div>
+            </div>
+
+            <div>
+            <button onclick="location.href='weeklykekka.html'">データを送信する</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pointValues = {
+                'apply': 100,
+                'somewhat apply': 75,
+                'somewhat not apply': 50,
+                'not apply': 25
+            };
+
+            const form = document.getElementById('surveyForm');
+
+            function saveResults(results) {
+                let storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
+                storedResults.push(results);
+                localStorage.setItem('surveyResults', JSON.stringify(storedResults));
+            }
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(event.target);
+                const results = {};
+                for (let [name, value] of formData.entries()) {
+                    results[name] = pointValues[value];
+                }
+
+                saveResults(results);
+                window.location.href = 'results.html';
+            });
+        });
+    </script>
+</body>
+</html>

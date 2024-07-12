@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性格診断結果</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cac363;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .bar {
+            height: 20px;
+            background-color: #4caf50;
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .increase-bar {
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .decrease-bar {
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .change {
+            font-size: 0.9em;
+        }
+        .increase {
+            color: green;
+        }
+        .decrease {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>性格診断結果</h1>
+        <div class="result" id="result"></div>
+        <button onclick="clearResults()">結果をクリア</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultContainer = document.getElementById('result');
+
+            function displayResults(storedResults) {
+                resultContainer.innerHTML = '<h2>結果</h2>';
+
+                storedResults.forEach((result, index) => {
+                    const sessionContainer = document.createElement('div');
+                    sessionContainer.innerHTML = `<h3>回答 ${index + 1} (${result.date})</h3>`; // 回答日付を表示
+                    let previousResult = storedResults[index - 1] || {};
+
+                    for (let [key, value] of Object.entries(result)) {
+                        if (key === 'date') continue; // 日付はスキップ
+                        
+                        const barContainer = document.createElement('div');
+                        const barLabel = document.createElement('p');
+                        const baseBar = document.createElement('div');
+                        const changeBar = document.createElement('div');
+                        const changeLabel = document.createElement('p');
+
+                        barLabel.innerText = `質問 ${key[1]}: ${value} ポイント`;
+                        baseBar.style.width = `${value}px`;
+                        baseBar.className = 'bar';
+
+                        if (index > 0) {
+                            let previousValue = previousResult[key] || 0;
+                            let change = value - previousValue;
+                            changeLabel.className = 'change';
+
+                            changeBar.style.width = `${Math.abs(change)}px`;
+
+                            if (change > 0) {
+                                changeBar.classList.add('increase-bar');
+                                changeBar.style.left = `${previousValue}px`;
+                                changeLabel.classList.add('increase');
+                                changeLabel.innerText = `（+${change} ポイント）`;
+                            } else if (change < 0) {
+                                changeBar.classList.add('decrease-bar');
+                                changeBar.style.left = `${value}px`;
+                                changeLabel.classList.add('decrease');
+                                changeLabel.innerText = `（${change} ポイント）`;
+                            } else {
+                                changeLabel.innerText = `（変化なし）`;
+                            }
+
+                            barContainer.appendChild(changeBar);
+                            barContainer.appendChild(changeLabel);
+                        }
+
+                        barContainer.appendChild(barLabel);
+                        barContainer.appendChild(baseBar);
+                        sessionContainer.appendChild(barContainer);
+                    }
+                    resultContainer.appendChild(sessionContainer);
+                });
+            }
+
+            const storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
+            displayResults(storedResults);
+        });
+
+        function clearResults() {
+            localStorage.removeItem('surveyResults');
+            location.reload();
+        }
+    </script>
+</body>
+</html>
