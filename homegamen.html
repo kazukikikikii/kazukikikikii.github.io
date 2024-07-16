@@ -6,8 +6,8 @@
         <meta name="description" content="アバターAIによる10代を対象とした相談相手">
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <!--リセットCSS
-        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">-->
+        <!--リセットCSS-->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 
         <!--オリジナルCSS-->
         <link rel="stylesheet" href="css/home-style.css">
@@ -82,7 +82,12 @@
                 <div class="messages" id="messages"></div>
                 <div class="input-container">
                     <input type="text" id="userInput" placeholder="Aa">
-                    <button onclick="sendMessage()">➤</button>
+                    <button onclick="sendMessage()">
+                        <div class="hikouki">
+                            <img src="images/hikouki.png">
+                        </div>
+                    </button>
+                        
                 </div>
             </div>
 
