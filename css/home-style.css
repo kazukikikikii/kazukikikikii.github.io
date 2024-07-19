@@ -60,8 +60,8 @@ body {
 }
 .chat-container {
     width: 100%;
-    height: 45vh;
-    margin: 10px 10px;
+    height: 46vh;
+    margin: 5px 10px;
     background-color: rgba(255, 255, 255, 0.336);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
