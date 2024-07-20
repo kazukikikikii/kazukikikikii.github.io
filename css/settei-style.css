@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/*共通部分-----------------------------*/
+html{
+    font-size: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(-225deg, #2CD8D5 0%, #a19bff 56%, #ff7c8d 100%);
+}
+
+/*メニューバー-----------------------------*/
+.menu-bar{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.menu-img{
+    height: 5.5vh;
+    margin-top: 10px;
+}
+.menubar-batu-img{
+    height: 5.5vh;
+    margin-top: 10px;
+}
+.main-nav{
+    margin-top: 4px;
+    background-color: rgba(255, 255, 255, 0.788);
+    width: 0;
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    right: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+.main-nav li{
+    text-align: center;
+    margin: 2rem 0;
+}
+.main-nav a{
+    display: block;
+}
+.main-nav.open-menu{
+    width: 30%;
+}
+
+/*新規投稿-----------------------------*/
+.main-title{
+    text-align: center;
+}
+.sub-title{
+    text-align: center;
+}
+.account-set {
+    text-align: center;
+    margin: 20px 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000000;
+}
+
+/*デスクトップ版--------------------------------------------------------*/
+@media(min-width: 800px){
+    .account-set {
+        text-align: center;
+        margin: 20px 650px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #000000;
+    }
+}
