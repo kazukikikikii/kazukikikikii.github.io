@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
-<link rel="stylesheet" href="css/home-style.css">
-<link rel="stylesheet" href="css/text_ani.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>設定画面</title>
+    <!--リセットCSS-->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <!--オリジナルCSS-->
+    <link rel="stylesheet" href="css/settei-style.css">
 </head>
 <body>
-     <header>
-            <div class="menu">
-                <label for="menu_bar">メニュー</label>
-                <input type="checkbox" class="menu_bar" id="menu_bar">
-                <ul id="links">
-                    <li><a href="homegamen.html">ホーム</a></li>
-                    <li><a href="keiziban.html">掲示板</a></li>
-                    <li><a href="avatarset.html">アバター</a></li>
-                    <li><a href="osirase.html">お知らせ</a></li>
-                    <li><a href="settei.html">設定</a></li>
-                    <li><a href="index.html">ログアウト</a></li>
-                </ul>
-            </div>
-        </header>
+    <header>
+        <nav class="menu-bar">
+            <button class="btn-menu"><img class="menu-img" src="images/menu3.png"></button>
+            <ul class="main-nav" id="links">
+                <li><a href="">ホーム</a></li>
+                <li><a href="keiziban.html">掲示板</a></li>
+                <li><a href="avatarset.html">アバター</a></li>
+                <li><a href="osirase.html">お知らせ</a></li>
+                <li><a href="settei.html">設定</a></li>
+                <li><a href="index.html">ログアウト</a></li>
+            </ul>
+        </nav>
+    </header>
     <script>
         function.darkmode(){
             
@@ -30,23 +31,24 @@
             
         }
     </script>
-    <h1>各種設定</h1>
+    <h1 class="main-title">各種設定</h1>
     <section>
-        <h2>アカウント設定</h2><br>
-        <button onclick="location.href='accountset.html'">アカウントの詳細設定はこちら</button>
+        <h2 class="sub-title">アカウント設定</h2><br>
+        <div class="account-set"><button onclick="location.href='accountset.html'">アカウントの詳細設定はこちら</button></div>
     </section>
     <section>
-        <h2>ダークモード設定</h2><br>
-        <button onclick="darkmode()" >ダークモードにする</button><h2>or</h2><button onclick="normalmode()" >ノーマルモードにする</button>
+        <h2 class="sub-title">ダークモード設定</h2><br>
+        <div class="account-set"><button onclick="darkmode()" >ダークモードにする</button><h2 class="sub-title">or</h2><button onclick="normalmode()" >ノーマルモードにする</button></div>
     </section>
         <section>
-        <h2>Voice設定</h2><br>
-        <button onclick="location.href='avatarset.html'">Voice設定はこちら</button>
+        <h2 class="sub-title">Voice設定</h2><br>
+        <div class="account-set"><button onclick="location.href='avatarset.html'">Voice設定はこちら</button></div>
     </section>
         <section>
-        <h2>BGM設定</h2><br>
+        <h2 class="sub-title">BGM設定</h2><br>
         
     </section>
+    <script src="script-menu.js"></script>
 
 </body>
 </html>
