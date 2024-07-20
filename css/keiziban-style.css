@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+/*共通部分-----------------------------*/
+html{
+    font-size: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(-225deg, #2CD8D5 0%, #a19bff 56%, #ff7c8d 100%);
+}
+
+/*メニューバー-----------------------------*/
+.menu-bar{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.menu-img{
+    height: 5.5vh;
+    margin-top: 10px;
+}
+.menubar-batu-img{
+    height: 5.5vh;
+    margin-top: 10px;
+}
+.main-nav{
+    margin-top: 4px;
+    background-color: rgba(255, 255, 255, 0.788);
+    width: 0;
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    right: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+.main-nav li{
+    text-align: center;
+    margin: 2rem 0;
+}
+.main-nav a{
+    display: block;
+}
+.main-nav.open-menu{
+    width: 30%;
+}
+
+/*新規投稿-----------------------------*/
+.main-title{
+    text-align: center;
+}
+.sub-title{
+    text-align: center;
+}
+.name-input {
+    text-align: center;
+    margin: 20px 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000000;
+}
+.text-input{
+    text-align: left;
+    margin: 10px 65px;
+}
+.text-input-box{
+    background-color: rgba(255, 255, 255, 0.123);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+textarea {
+    width:100%;
+    height: 100px;
+}
+.toukou button{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.151);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+.toukou{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+/*投稿一覧-----------------------------*/
+.itiran{
+    text-align: center;
+    padding-top: 30px;
+    margin: auto 45px;
+    border-top: 1px solid #000000;
+}
+.postList{
+    text-align: center;
+    margin: 10px 40px;
+    padding-bottom: 10px;
+}
+.rireki-kesu button{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.185);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+.rireki-kesu{
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 10px 40px;
+    border-bottom: 1px solid #000000;
+}
+.koukou button{
+    text-align: center;
+    padding-top: 30px;
+    border-bottom: 1px solid #000000;
+}
+.koukou{
+    text-align: center;
+}
+.home button{
+    text-align: center;
+    padding-top: 10px;
+    border-bottom: 1px solid #000000;
+}
+.home{
+    text-align: center;
+}
+
+/*デスクトップ版--------------------------------------------------------*/
+@media(min-width: 800px){
+    .name-input {
+        margin: 20px 700px;
+    }
+    .text-input{
+        margin: 10px 700px;
+    }
+    /*投稿一覧*/
+    .itiran{
+        padding-top: 20px;
+        margin: auto 650px;
+        border-top: 1px solid #000000;
+    }
+    .rireki-kesu{
+        text-align: center;
+        padding-bottom: 20px;
+        margin: 10px 650px;
+        border-bottom: 1px solid #000000;
+    }
+}
