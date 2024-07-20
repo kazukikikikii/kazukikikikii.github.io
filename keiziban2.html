@@ -4,40 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>掲示板</title>
-    <link rel="stylesheet" href="css/home-style.css">
-    <link rel="stylesheet" href="css/text_ani.css">
+    <!--リセットCSS-->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <!--オリジナルCSS-->
+    <link rel="stylesheet" href="css/keiziban-style.css">
 </head>
 <body>
-     <header>
-            <div class="menu">
-                <label for="menu_bar">メニュー</label>
-                <input type="checkbox" class="menu_bar" id="menu_bar">
-                <ul id="links">
-                    <li><a href="homegamen.html">ホーム</a></li>
-                    <li><a href="keiziban.html">掲示板</a></li>
-                    <li><a href="avatarset.html">アバター</a></li>
-                    <li><a href="osirase.html">お知らせ</a></li>
-                    <li><a href="settei.html">設定</a></li>
-                    <li><a href="index.html">ログアウト</a></li>
-                </ul>
-            </div>
-        </header>
-    <h1>~掲示板~</h1>
-    <h1>高校生の相談所</h1>
+    <header>
+        <nav class="menu-bar">
+            <button class="btn-menu"><img class="menu-img" src="images/menu3.png"></button>
+            <ul class="main-nav" id="links">
+                <li><a href="">ホーム</a></li>
+                <li><a href="keiziban.html">掲示板</a></li>
+                <li><a href="avatarset.html">アバター</a></li>
+                <li><a href="osirase.html">お知らせ</a></li>
+                <li><a href="settei.html">設定</a></li>
+                <li><a href="index.html">ログアウト</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="main-title">~掲示板~</h1>
+    <h1 class="main-title">高校生の相談所</h1>
     <section>
-        <h2>新規投稿</h2>
+        <h2 class="sub-title">新規投稿</h2>
         <form id="postForm" action="#" method="POST">
-            お名前:<input type="text" id="name" name="name"><br>
-            本文:<textarea id="section" name="section" rows="3"></textarea><br>
-            <button type="submit">投稿する</button>
+            <div class="name-input">お名前 : <input type="text" id="name" name="name" placeholder="ココロ まもる"><br></div>
+            <div class="text-input">本文
+            <br>
+            <textarea class="text-input-box" id="section" name="section" rows="3" placeholder="おはようございます！"></textarea><br></div>
+            <div class="toukou"><button type="submit">投稿する</button></div>
         </form>
     </section>
     <section>
-        <h2>投稿一覧</h2>
-        <div id="postList">
+        <h2 class="itiran">投稿一覧</h2>
+        <div class="postList" id="postList">
             <!-- 投稿が追加される要素 -->
         </div>
-        <button id="clearPosts">履歴を消す</button>
+        <div class="rireki-kesu"><button id="clearPosts">履歴を消す</button></div>
     </section>
 
     <script>
@@ -109,11 +112,12 @@
     </script>
     <br>
     <section>
-        <button onclick="location.href='keiziban.html'">掲示板_みんなの相談所へ戻る</button>
+        <div class="koukou"><button onclick="location.href='keiziban2.html'">掲示板_高校生の相談所へ行く</button></div>
     </section>
     <br>
     <section>
-        <button onclick="location.href='homegamen.html'">ホームへ戻る</button>
+        <div class="home"><button onclick="location.href='homegamen.html'">ホームへ戻る</button></div>
     </section>
+    <script src="script-menu.js"></script>
 </body>
 </html>
