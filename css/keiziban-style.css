@@ -128,22 +128,25 @@ textarea {
 
 /*デスクトップ版--------------------------------------------------------*/
 @media(min-width: 800px){
+    body {
+        height: 100vh;
+    }
     .name-input {
-        margin: 20px 700px;
+        margin: 20px 350px;
     }
     .text-input{
-        margin: 10px 700px;
+        margin: 10px 350px;
     }
     /*投稿一覧*/
     .itiran{
         padding-top: 20px;
-        margin: auto 650px;
+        margin: auto 350px;
         border-top: 1px solid #000000;
     }
     .rireki-kesu{
         text-align: center;
         padding-bottom: 20px;
-        margin: 10px 650px;
+        margin: 10px 350px;
         border-bottom: 1px solid #000000;
     }
 }
