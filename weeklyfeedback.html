@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>性格診断アンケート</title>
+    <title>毎日質問</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,23 +37,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>性格診断アンケート</h1>
+        <h1>毎日質問</h1>
         <form id="surveyForm"></form>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const questions = [
+            const negativeQuestions = [
                 { text: '考えすぎて眠れない日がある', name: 'q1' },
                 { text: '体がだるく、疲れやすいことがある', name: 'q2' },
-                { text: '騒音が気になる', name: 'q3' },
-                { text: '気が沈んだり、気が重くなることがある', name: 'q4' },
-                { text: '音楽を聴いて楽しい', name: 'q5' },
-                { text: '朝が得意だ', name: 'q6' },
-                { text: '会話をすることが好きだ', name: 'q7' },
-                { text: '食事がすすまないことがある', name: 'q8' },
-                { text: '何もしたくない日がある', name: 'q9' },
-                { text: '自分は必要のない人間だ', name: 'q10' },
-                { text: '勉強や仕事が上手くいかない', name: 'q11' }
+                { text: '気が沈んだり、気が重くなることがある', name: 'q3' },
+                { text: '食事がすすまないことがある', name: 'q4' },
+                { text: '何もしたくない日がある', name: 'q5' },
+                { text: '勉強や部活が上手くいかない', name: 'q6' }
+            ];
+
+            const positiveQuestions = [
+                { text: '音楽を聴いていて楽しい', name: 'q7' },
+                { text: '朝が得意だ', name: 'q8' },
+                { text: '会話をすることが好きだ', name: 'q9' },
+                { text: '学校に行くことが好きだ', name: 'q10' },
+                { text: '自分は幸せだと思う', name: 'q11' },
+                { text: '打ち込める趣味がある', name: 'q12' }
             ];
 
             function getRandomQuestions(questions, num) {
@@ -61,7 +65,9 @@
                 return shuffled.slice(0, num);
             }
 
-            const selectedQuestions = getRandomQuestions(questions, 3);
+            const selectedNegativeQuestion = getRandomQuestions(negativeQuestions, 1);
+            const selectedPositiveQuestions = getRandomQuestions(positiveQuestions, 2);
+            const selectedQuestions = selectedNegativeQuestion.concat(selectedPositiveQuestions);
             const form = document.getElementById('surveyForm');
 
             selectedQuestions.forEach((question, index) => {
