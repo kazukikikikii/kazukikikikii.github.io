@@ -36,6 +36,18 @@
             font-weight: bold;
             margin-top: 20px;
         }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .comment {
+            margin-top: 20px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -43,13 +55,19 @@
         <h1>性格診断結果</h1>
         <div id="resultsContainer" class="results"></div>
         <div class="summary" id="summaryContainer"></div>
+        <div class="comment" id="commentContainer"></div>
+        <div class="buttons">
+            <button id="clearHistoryButton">履歴を削除する</button>
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const resultsContainer = document.getElementById('resultsContainer');
             const summaryContainer = document.getElementById('summaryContainer');
+            const commentContainer = document.getElementById('commentContainer');
+            const clearHistoryButton = document.getElementById('clearHistoryButton');
             
-            const storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
+            let storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
 
             if (storedResults.length > 0) {
                 const latestResult = storedResults[storedResults.length - 1];
@@ -59,16 +77,16 @@
                     const questionText = {
                         'q1': '考えすぎて眠れない日がある',
                         'q2': '体がだるく、疲れやすいことがある',
-                        'q3': '気が沈んだり、気が重くなることがある',
-                        'q4': '食事がすすまないことがある',
-                        'q5': '何もしたくない日がある',
-                        'q6': '勉強や部活が上手くいかない',
-                        'q7': '音楽を聴いていて楽しい',
-                        'q8': '朝が得意だ',
-                        'q9': '会話をすることが好きだ',
-                        'q10': '学校に行くことが好きだ',
-                        'q11': '自分は幸せだと思う',
-                        'q12': '打ち込める趣味がある'
+                        'q4': '気が沈んだり、気が重くなることがある',
+                        'q8': '食事がすすまないことがある',
+                        'q9': '何もしたくない日がある',
+                        'q11': '勉強や部活が上手くいかない',
+                        'q5': '音楽を聴いていて楽しい',
+                        'q6': '朝が得意だ',
+                        'q7': '会話をすることが好きだ',
+                        'q12': '学校に行くことが好きだ',
+                        'q13': '自分は幸せだと思う',
+                        'q14': '打ち込める趣味がある'
                     }[question];
 
                     const resultParagraph = document.createElement('p');
@@ -81,11 +99,35 @@
                 const summaryParagraph = document.createElement('p');
                 summaryParagraph.textContent = `総合得点: ${totalScore}点`;
                 summaryContainer.appendChild(summaryParagraph);
+
+                if (storedResults.length > 1) {
+                    const previousResult = storedResults[storedResults.length - 2];
+                    let previousTotalScore = 0;
+                    for (let score of Object.values(previousResult)) {
+                        previousTotalScore += score;
+                    }
+
+                    let comment;
+                    if (totalScore > previousTotalScore) {
+                        comment = '前回よりポイントが増えましたね！素晴らしいです！';
+                    } else if (totalScore < previousTotalScore) {
+                        comment = '前回よりポイントが減っています。心配です。';
+                    } else {
+                        comment = '前回と同じポイントです。';
+                    }
+                    commentContainer.textContent = comment;
+                }
             } else {
                 resultsContainer.textContent = '結果がありません。';
             }
+
+            clearHistoryButton.addEventListener('click', function() {
+                localStorage.removeItem('surveyResults');
+                window.location.reload();
+            });
         });
     </script>
 </body>
 </html>
+
 
