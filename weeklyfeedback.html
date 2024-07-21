@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>毎日質問</title>
+    <title>性格診断アンケート</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>毎日質問</h1>
+        <h1>性格診断アンケート</h1>
         <form id="surveyForm"></form>
     </div>
     <script>
@@ -81,7 +81,12 @@
                 const optionsDiv = document.createElement('div');
                 optionsDiv.classList.add('options');
 
-                ['apply', 'somewhat apply', 'somewhat not apply', 'not apply'].forEach(value => {
+                const optionTexts = ['apply', 'somewhat apply', 'somewhat not apply', 'not apply'];
+                const optionLabels = question.name.startsWith('q1') || question.name.startsWith('q2') || question.name.startsWith('q4') || question.name.startsWith('q8') || question.name.startsWith('q9') || question.name.startsWith('q11') 
+                    ? ['よくある', 'たまにある', 'あまりない', 'まったくない'] 
+                    : ['あてはまる', 'ややあてはまる', 'ややあてはまらない', 'あてはまらない'];
+
+                optionTexts.forEach((value, idx) => {
                     const id = `${question.name}_${value}`;
                     const input = document.createElement('input');
                     input.type = 'radio';
@@ -92,7 +97,7 @@
                     
                     const label = document.createElement('label');
                     label.setAttribute('for', id);
-                    label.textContent = value === 'apply' ? 'あてはまる' : value === 'somewhat apply' ? 'ややあてはまる' : value === 'somewhat not apply' ? 'ややあてはまらない' : 'あてはまらない';
+                    label.textContent = optionLabels[idx];
                     
                     optionsDiv.appendChild(input);
                     optionsDiv.appendChild(label);
@@ -118,6 +123,13 @@
                 'not apply': 25
             };
 
+            const negativePointValues = {
+                'apply': 25,
+                'somewhat apply': 50,
+                'somewhat not apply': 75,
+                'not apply': 100
+            };
+
             function saveResults(results) {
                 let storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
                 storedResults.push(results);
@@ -130,7 +142,11 @@
                 const formData = new FormData(event.target);
                 const results = {};
                 for (let [name, value] of formData.entries()) {
-                    results[name] = pointValues[value];
+                    if (negativeQuestions.some(q => q.name === name)) {
+                        results[name] = negativePointValues[value];
+                    } else {
+                        results[name] = pointValues[value];
+                    }
                 }
 
                 saveResults(results);
@@ -140,4 +156,3 @@
     </script>
 </body>
 </html>
-
