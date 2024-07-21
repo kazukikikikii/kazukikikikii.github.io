@@ -1,72 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
-<link rel="stylesheet" href="css/home-style.css">
-<link rel="stylesheet" href="css/text_ani.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>アバター設定画面</title>
+    <!--リセットCSS-->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <!--オリジナルCSS-->
+    <link rel="stylesheet" href="css/avatar-style.css">
 </head>
 <body>
      <header>
-            <div class="menu">
-                <label for="menu_bar">メニュー</label>
-                <input type="checkbox" class="menu_bar" id="menu_bar">
-                <ul id="links">
-                    <li><a href="homegamen.html">ホーム</a></li>
-                    <li><a href="keiziban.html">掲示板</a></li>
-                    <li><a href="avatarset.html">アバター</a></li>
-                    <li><a href="osirase.html">お知らせ</a></li>
-                    <li><a href="settei.html">設定</a></li>
-                    <li><a href="index.html">ログアウト</a></li>
-                </ul>
-            </div>
+        <nav class="menu-bar">
+            <button class="btn-menu"><img class="menu-img" src="images/menu3.png"></button>
+            <ul class="main-nav" id="links">
+                <li><a href="homegamen.html">ホーム</a></li>
+                <li><a href="keiziban.html">掲示板</a></li>
+                <li><a href="avatarset.html">アバター</a></li>
+                <li><a href="osirase.html">お知らせ</a></li>
+                <li><a href="settei.html">設定</a></li>
+                <li><a href="index.html">ログアウト</a></li>
+            </ul>
+        </nav>
+    </header>
         </header>
-    <h1>アバター設定</h1>
-    <form>
+    <h1 class="main-title">アバター設定</h1>
+    <form class="sub-title">
         <select id="avatarnow" name="avatarnow">
-          <option value="girl1">少女１(デフォルト)</option>
-          <option value="boy1">少年１(デフォルト)</option>
-          <option value="robo1">ロボット１(デフォルト)</option>
+            <option value="girl1">少女１(デフォルト)</option>
+            <option value="boy1">少年１(デフォルト)</option>
+            <option value="robo1">ロボット１(デフォルト)</option>
         </select>
     </form>
-    <button type="button" onclick="avatarSelect()">アバターの詳細を表示</button>
+    <div class="hyozu"><button type="button" onclick="avatarSelect()">アバターの詳細を表示</button></div>
     <br>
-    <img id="mypic" onclick="slideshow()" src="images/girl1_normal.png"><br>
-    <p id="selectavatar"></p>
-    <p id="charabun"></p>
-        <script>
-          function avatarSelect() {
-            let avatarSelect = document.querySelector("#avatarnow")
-            let chara = avatarSelect.value
-            // セレクトボックスの値を取得
-            // console.log(avatarSelect.value)
-            // // セレクトボックスの項目を取得
-            // let item = avatarSelect.options[avatarSelect.selectedIndex].innerText;
-            // console.log(item)
-            var avatarnow = document.getElementById('avatarnow');
-            avatarnow.addEventListener('change', (event) => {
-                var selectavatar = document.getElementById('selectavatar');
-                var charabun = document.getElementById('charabun');
-                selectavatar.textContent = avatarnow.options[avatarnow.selectedIndex].value + ":" + avatarnow.options[avatarnow.selectedIndex].textContent;
-            });
-            var pics_src = new Array("images/girl1_normal.png","images/boy1_normal.png","images/robo1.png");
-            var num = 0;
-            if (chara == "girl1") {
-                num = 0;
-                charabun.textContent = "私の名前は「少女１(デフォルト)」です。よろしくお願いします。\n趣味は様々な人のお話を聞き、多種多様な人生を追体験することです。\nあなたはどんな人生を歩んで来られましたか？もし良ければ、私とお話しませんか？\n今現在悩んでいること、不安に思っていることがありましたら、いつでも私にお話しください。\n少しでもあなたの心の支えになることができれば、幸いです。" ;
-            }
-            else if(chara == "boy1"){
-                num = 1;
-                charabun.textContent = "僕の名前は「少年１(デフォルト)」。どうかよろしく。\n敬語があまり得意じゃないから、出来ればため口で話してくれるとありがたいかな。まぁほら、これから仲良くなろうってんだから、逆に丁度いいよね？\nそんな不安そうな顔しないでよ。長い付き合いになればいいって僕も思ってるからさ。\nそうだ！僕、他人の話を聞くのが割と上手だって、周りからよく言われるんだよね。\n話聞いて欲しいときがあったら、いつでも言ってよ。待ってるから。";
-            }
-            else {
-                num = 2;
-                charabun.textContent = "私ノ名前ハ「ロボット１(デフォルト)」ダ。ヨロシクネ。\n私ハ、貴方ノ悩ミヤ苦悩ヲ聞ク事ヲ目的トシテ生マレテキタ。\nカタカナ打ツノ面倒ダカラ、挨拶ハコレグライニシテオクヨ。テハ。";
-            }
-            document.getElementById("mypic").src=pics_src[num];
-          }
-        </script>
+    <div class="avatar-img"><img id="mypic" onclick="slideshow()" src="images/girl1_normal.png"><br></div>
+    <div class="avatar-name"><p id="selectavatar"></p></div>
+    <div class="avatar-setumai"><p id="charabun"></p></div>
+        <script src="script-avatar.js"></script>
         <script src="script-menu.js"></script>
         <script src="script-coler.js"></script>
 </body>
