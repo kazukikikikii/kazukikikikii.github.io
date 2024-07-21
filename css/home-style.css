@@ -7,7 +7,7 @@ html{
 body {
     font-family: Arial, sans-serif;
     height: 100vh;
-    background: linear-gradient(-225deg, #2CD8D5 0%, #a19bff 56%, #ff7c8d 100%);
+    /*background: linear-gradient(-225deg, #2CD8D5 0%, #a19bff 56%, #ff7c8d 100%);*/
 }
 
 /*メニューバー-----------------------------*/
