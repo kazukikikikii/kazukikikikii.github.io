@@ -38,170 +38,79 @@
 <body>
     <div class="container">
         <h1>性格診断アンケート</h1>
-        <form id="surveyForm">
-            <div class="question">
-                <p>1. 考えすぎて眠れない日がある</p>
-                <div class="options">
-                    <input type="radio" id="q1a" name="q1" value="apply" required>
-                    <label for="q1a">よくある</label><br>
-                    <input type="radio" id="q1b" name="q1" value="somewhat apply" required>
-                    <label for="q1b">たまにある</label><br>
-                    <input type="radio" id="q1c" name="q1" value="somewhat not apply" required>
-                    <label for="q1c">あまりない</label><br>
-                    <input type="radio" id="q1d" name="q1" value="not apply" required>
-                    <label for="q1d">まったくない</label>
-                </div>
-            </div>
-
-            <div class="question">
-                <p>2. 体がだるく、疲れやすいことがある</p>
-                <div class="options">
-                    <input type="radio" id="q2a" name="q2" value="apply" required>
-                    <label for="q2a">よくある</label><br>
-                    <input type="radio" id="q2b" name="q2" value="somewhat apply" required>
-                    <label for="q2b">たまにある</label><br>
-                    <input type="radio" id="q2c" name="q2" value="somewhat not apply" required>
-                    <label for="q2c">あまりない</label><br>
-                    <input type="radio" id="q2d" name="q2" value="not apply" required>
-                    <label for="q2d">まったくない</label>
-                </div>
-            </div>
-
-            <div class="question">
-                <p>3. 騒音が気になる</p>
-                <div class="options">
-                    <input type="radio" id="q3a" name="q3" value="apply" required>
-                    <label for="q3a">あてはまる</label><br>
-                    <input type="radio" id="q3b" name="q3" value="somewhat apply" required>
-                    <label for="q3b">ややあてはまる</label><br>
-                    <input type="radio" id="q3c" name="q3" value="somewhat not apply" required>
-                    <label for="q3c">ややあてはまらない</label><br>
-                    <input type="radio" id="q3d" name="q3" value="not apply" required>
-                    <label for="q3d">あてはまらない</label>
-                </div>
-            </div>
-
-            <div class="question">
-                <p>4. 気が沈んだり、気が重くなることがある</p>
-                <div class="options">
-                    <input type="radio" id="q4a" name="q4" value="apply" required>
-                    <label for="q4a">よくある</label><br>
-                    <input type="radio" id="q4b" name="q4" value="somewhat apply" required>
-                    <label for="q4b">たまにある</label><br>
-                    <input type="radio" id="q4c" name="q4" value="somewhat not apply" required>
-                    <label for="q4c">あまりない</label><br>
-                    <input type="radio" id="q4d" name="q4" value="not apply" required>
-                    <label for="q4d">まったくない</label>
-                </div>
-            </div>
-
-            <div class="question">
-                <p>5. 音楽を聴いて楽しい</p>
-                <div class="options">
-                    <input type="radio" id="q5a" name="q5" value="apply" required>
-                    <label for="q5a">あてはまる</label><br>
-                    <input type="radio" id="q5b" name="q5" value="somewhat apply" required>
-                    <label for="q5b">ややあてはまる</label><br>
-                    <input type="radio" id="q5c" name="q5" value="somewhat not apply" required>
-                    <label for="q5c">あまりあてはまらない</label><br>
-                    <input type="radio" id="q5d" name="q5" value="not apply" required>
-                    <label for="q5d">あてはまらない</label>
-                </div>
-            </div>
-                        <div class="question">
-                <p>6. 朝が得意だ</p>
-                <div class="options">
-                    <input type="radio" id="q6a" name="q6" value="apply" required>
-                    <label for="q6a">あてはまる</label><br>
-                    <input type="radio" id="q6b" name="q6" value="somewhat apply" required>
-                    <label for="q6b">ややあてはまる</label><br>
-                    <input type="radio" id="q6c" name="q6" value="somewhat not apply" required>
-                    <label for="q6c">あまりあてはまらない</label><br>
-                    <input type="radio" id="q6d" name="q6" value="not apply" required>
-                    <label for="q6d">あてはまらない</label>
-                </div>
-            </div>
-                        <div class="question">
-                <p>7. 会話をすることが好きだ</p>
-                <div class="options">
-                    <input type="radio" id="q7a" name="q7" value="apply" required>
-                    <label for="q7a">あてはまる</label><br>
-                    <input type="radio" id="q7b" name="q7" value="somewhat apply" required>
-                    <label for="q7b">ややあてはまる</label><br>
-                    <input type="radio" id="q7c" name="q7" value="somewhat not apply" required>
-                    <label for="q7c">あまりあてはまらない</label><br>
-                    <input type="radio" id="q7d" name="q7" value="not apply" required>
-                    <label for="q7d">あてはまらない</label>
-                </div>
-            </div>
-                        <div class="question">
-                <p>8. 食事がすすまないことがある</p>
-                <div class="options">
-                    <input type="radio" id="q8a" name="q8" value="apply" required>
-                    <label for="q8a">あてはまる</label><br>
-                    <input type="radio" id="q8b" name="q8" value="somewhat apply" required>
-                    <label for="q8b">ややあてはまる</label><br>
-                    <input type="radio" id="q8c" name="q8" value="somewhat not apply" required>
-                    <label for="q8c">あまりあてはまらない</label><br>
-                    <input type="radio" id="q8d" name="q8" value="not apply" required>
-                    <label for="q8d">あてはまらない</label>
-                </div>
-            </div>
-                        <div class="question">
-                <p>9. 何もしたくない日がある</p>
-                <div class="options">
-                    <input type="radio" id="q9a" name="q9" value="apply" required>
-                    <label for="q9a">あてはまる</label><br>
-                    <input type="radio" id="q9b" name="q9" value="somewhat apply" required>
-                    <label for="q9b">ややあてはまる</label><br>
-                    <input type="radio" id="q9c" name="q9" value="somewhat not apply" required>
-                    <label for="q9c">あまりあてはまらない</label><br>
-                    <input type="radio" id="q9d" name="q9" value="not apply" required>
-                    <label for="q9d">あてはまらない</label>
-                </div>
-            </div>
-                        <div class="question">
-                <p>10. 自分は必要のない人間だ</p>
-                <div class="options">
-                    <input type="radio" id="q10a" name="q10" value="apply" required>
-                    <label for="q10a">あてはまる</label><br>
-                    <input type="radio" id="q10b" name="q10" value="somewhat apply" required>
-                    <label for="q10b">ややあてはまる</label><br>
-                    <input type="radio" id="q10c" name="q10" value="somewhat not apply" required>
-                    <label for="q10c">あまりあてはまらない</label><br>
-                    <input type="radio" id="q10d" name="q10" value="not apply" required>
-                    <label for="q10d">あてはまらない</label>
-                </div>
-            </div>
-                        <div class="question">
-                <p>11. 勉強や仕事が上手くいかない</p>
-                <div class="options">
-                    <input type="radio" id="q11a" name="q11" value="apply" required>
-                    <label for="q11a">あてはまる</label><br>
-                    <input type="radio" id="q11b" name="q11" value="somewhat apply" required>
-                    <label for="q11b">ややあてはまる</label><br>
-                    <input type="radio" id="q11c" name="q11" value="somewhat not apply" required>
-                    <label for="q11c">あまりあてはまらない</label><br>
-                    <input type="radio" id="q11d" name="q11" value="not apply" required>
-                    <label for="q11d">あてはまらない</label>
-                </div>
-            </div>
-    <div>
-<button onclick="location.href='weeklykekka.html'">データを送信する</button>
-</div>
-
-        </form>
+        <form id="surveyForm"></form>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const questions = [
+                { text: '考えすぎて眠れない日がある', name: 'q1' },
+                { text: '体がだるく、疲れやすいことがある', name: 'q2' },
+                { text: '騒音が気になる', name: 'q3' },
+                { text: '気が沈んだり、気が重くなることがある', name: 'q4' },
+                { text: '音楽を聴いて楽しい', name: 'q5' },
+                { text: '朝が得意だ', name: 'q6' },
+                { text: '会話をすることが好きだ', name: 'q7' },
+                { text: '食事がすすまないことがある', name: 'q8' },
+                { text: '何もしたくない日がある', name: 'q9' },
+                { text: '自分は必要のない人間だ', name: 'q10' },
+                { text: '勉強や仕事が上手くいかない', name: 'q11' }
+            ];
+
+            function getRandomQuestions(questions, num) {
+                const shuffled = questions.sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, num);
+            }
+
+            const selectedQuestions = getRandomQuestions(questions, 3);
+            const form = document.getElementById('surveyForm');
+
+            selectedQuestions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                
+                const questionP = document.createElement('p');
+                questionP.textContent = `${index + 1}. ${question.text}`;
+                questionDiv.appendChild(questionP);
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.classList.add('options');
+
+                ['apply', 'somewhat apply', 'somewhat not apply', 'not apply'].forEach(value => {
+                    const id = `${question.name}_${value}`;
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.id = id;
+                    input.name = question.name;
+                    input.value = value;
+                    input.required = true;
+                    
+                    const label = document.createElement('label');
+                    label.setAttribute('for', id);
+                    label.textContent = value === 'apply' ? 'あてはまる' : value === 'somewhat apply' ? 'ややあてはまる' : value === 'somewhat not apply' ? 'ややあてはまらない' : 'あてはまらない';
+                    
+                    optionsDiv.appendChild(input);
+                    optionsDiv.appendChild(label);
+                    optionsDiv.appendChild(document.createElement('br'));
+                });
+
+                questionDiv.appendChild(optionsDiv);
+                form.appendChild(questionDiv);
+            });
+
+            const submitButtonDiv = document.createElement('div');
+            submitButtonDiv.classList.add('submit-button');
+            const submitButton = document.createElement('button');
+            submitButton.type = 'submit';
+            submitButton.textContent = 'データを送信する';
+            submitButtonDiv.appendChild(submitButton);
+            form.appendChild(submitButtonDiv);
+
             const pointValues = {
                 'apply': 100,
                 'somewhat apply': 75,
                 'somewhat not apply': 50,
                 'not apply': 25
             };
-
-            const form = document.getElementById('surveyForm');
 
             function saveResults(results) {
                 let storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
@@ -223,6 +132,6 @@
             });
         });
     </script>
-
 </body>
 </html>
+
