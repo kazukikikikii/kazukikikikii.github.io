@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #cac363;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,115 +20,72 @@
             width: 80%;
             max-width: 600px;
         }
-        .result {
+        .results {
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
-        .bar {
-            height: 20px;
-            background-color: #4caf50;
-            text-align: center;
-            color: white;
-            margin-bottom: 10px;
-            position: relative;
+        .results p {
+            margin: 0;
+            padding: 10px 0;
         }
-        .increase-bar {
-            background-color: blue;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .decrease-bar {
-            background-color: red;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .change {
-            font-size: 0.9em;
-        }
-        .increase {
-            color: green;
-        }
-        .decrease {
-            color: red;
+        .summary {
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>性格診断結果</h1>
-        <div class="result" id="result"></div>
-            <div>
-        <button onclick="location.href='homegamen.html'">ホーム画面</button>
+        <div id="resultsContainer" class="results"></div>
+        <div class="summary" id="summaryContainer"></div>
     </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const resultContainer = document.getElementById('result');
-
-            function displayResults(storedResults) {
-                resultContainer.innerHTML = '<h2>結果</h2>';
-
-                storedResults.forEach((result, index) => {
-                    const sessionContainer = document.createElement('div');
-                    sessionContainer.innerHTML = `<h3>回答 ${index + 1} (${result.date})</h3>`; // 回答日付を表示
-                    let previousResult = storedResults[index - 1] || {};
-
-                    for (let [key, value] of Object.entries(result)) {
-                        if (key === 'date') continue; // 日付はスキップ
-                        
-                        const barContainer = document.createElement('div');
-                        const barLabel = document.createElement('p');
-                        const baseBar = document.createElement('div');
-                        const changeBar = document.createElement('div');
-                        const changeLabel = document.createElement('p');
-
-                        barLabel.innerText = `質問 ${key[1]}: ${value} ポイント`;
-                        baseBar.style.width = `${value}px`;
-                        baseBar.className = 'bar';
-
-                        if (index > 0) {
-                            let previousValue = previousResult[key] || 0;
-                            let change = value - previousValue;
-                            changeLabel.className = 'change';
-
-                            changeBar.style.width = `${Math.abs(change)}px`;
-
-                            if (change > 0) {
-                                changeBar.classList.add('increase-bar');
-                                changeBar.style.left = `${previousValue}px`;
-                                changeLabel.classList.add('increase');
-                                changeLabel.innerText = `（+${change} ポイント）`;
-                            } else if (change < 0) {
-                                changeBar.classList.add('decrease-bar');
-                                changeBar.style.left = `${value}px`;
-                                changeLabel.classList.add('decrease');
-                                changeLabel.innerText = `（${change} ポイント）`;
-                            } else {
-                                changeLabel.innerText = `（変化なし）`;
-                            }
-
-                            barContainer.appendChild(changeBar);
-                            barContainer.appendChild(changeLabel);
-                        }
-
-                        barContainer.appendChild(barLabel);
-                        barContainer.appendChild(baseBar);
-                        sessionContainer.appendChild(barContainer);
-                    }
-                    resultContainer.appendChild(sessionContainer);
-                });
-            }
-
+            const resultsContainer = document.getElementById('resultsContainer');
+            const summaryContainer = document.getElementById('summaryContainer');
+            
             const storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
-            displayResults(storedResults);
-        });
 
-        function clearResults() {
-            localStorage.removeItem('surveyResults');
-            location.reload();
-        }
+            if (storedResults.length > 0) {
+                const latestResult = storedResults[storedResults.length - 1];
+
+                let totalScore = 0;
+                for (let [question, score] of Object.entries(latestResult)) {
+                    const questionText = {
+                        'q1': '考えすぎて眠れない日がある',
+                        'q2': '体がだるく、疲れやすいことがある',
+                        'q3': '気が沈んだり、気が重くなることがある',
+                        'q4': '食事がすすまないことがある',
+                        'q5': '何もしたくない日がある',
+                        'q6': '勉強や部活が上手くいかない',
+                        'q7': '音楽を聴いていて楽しい',
+                        'q8': '朝が得意だ',
+                        'q9': '会話をすることが好きだ',
+                        'q10': '学校に行くことが好きだ',
+                        'q11': '自分は幸せだと思う',
+                        'q12': '打ち込める趣味がある'
+                    }[question];
+
+                    const resultParagraph = document.createElement('p');
+                    resultParagraph.textContent = `${questionText}: ${score}点`;
+                    resultsContainer.appendChild(resultParagraph);
+
+                    totalScore += score;
+                }
+
+                const summaryParagraph = document.createElement('p');
+                summaryParagraph.textContent = `総合得点: ${totalScore}点`;
+                summaryContainer.appendChild(summaryParagraph);
+            } else {
+                resultsContainer.textContent = '結果がありません。';
+            }
+        });
     </script>
 </body>
 </html>
+
