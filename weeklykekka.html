@@ -48,7 +48,13 @@
             margin-top: 20px;
             font-size: 18px;
         }
+        .chart-container {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -56,6 +62,9 @@
         <div id="resultsContainer" class="results"></div>
         <div class="summary" id="summaryContainer"></div>
         <div class="comment" id="commentContainer"></div>
+        <div class="chart-container">
+            <canvas id="resultsChart"></canvas>
+        </div>
         <div class="buttons">
             <button id="clearHistoryButton">履歴を削除する</button>
         </div>
@@ -66,11 +75,15 @@
             const summaryContainer = document.getElementById('summaryContainer');
             const commentContainer = document.getElementById('commentContainer');
             const clearHistoryButton = document.getElementById('clearHistoryButton');
-            
+            const resultsChartCtx = document.getElementById('resultsChart').getContext('2d');
+
             let storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
+            let latestResult = {};
+            let labels = [];
+            let data = [];
 
             if (storedResults.length > 0) {
-                const latestResult = storedResults[storedResults.length - 1];
+                latestResult = storedResults[storedResults.length - 1];
 
                 let totalScore = 0;
                 for (let [question, score] of Object.entries(latestResult)) {
@@ -92,6 +105,9 @@
                     const resultParagraph = document.createElement('p');
                     resultParagraph.textContent = `${questionText}: ${score}点`;
                     resultsContainer.appendChild(resultParagraph);
+
+                    labels.push(questionText);
+                    data.push(score);
 
                     totalScore += score;
                 }
@@ -121,6 +137,28 @@
                 resultsContainer.textContent = '結果がありません。';
             }
 
+            const resultsChart = new Chart(resultsChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '得点',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
             clearHistoryButton.addEventListener('click', function() {
                 localStorage.removeItem('surveyResults');
                 window.location.reload();
@@ -129,5 +167,3 @@
     </script>
 </body>
 </html>
-
-
