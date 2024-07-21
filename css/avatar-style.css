@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/*共通部分-----------------------------*/
+html{
+    font-size: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    /*background: linear-gradient(-225deg, #2CD8D5 0%, #a19bff 56%, #ff7c8d 100%);*/
+}
+
+/*メニューバー-----------------------------*/
+.menu-bar{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.menu-img{
+    height: 5.5vh;
+    margin-top: 10px;
+}
+.menubar-batu-img{
+    height: 5.5vh;
+    margin-top: 10px;
+}
+.main-nav{
+    margin-top: 4px;
+    background-color: rgba(255, 255, 255, 0.788);
+    width: 0;
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    right: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+.main-nav li{
+    text-align: center;
+    margin: 2rem 0;
+}
+.main-nav a{
+    display: block;
+}
+.main-nav.open-menu{
+    width: 30%;
+}
+/*アバター-----------------------------*/
+.main-title{
+    text-align: center;
+}
+.sub-title{
+    text-align: center;
+}
+.hyozu{
+    text-align: center;
+}
+.avatar-img{
+    text-align: center;
+}
+.avatar-img img{
+    width: 70%;
+}
+.avatar-name{
+    text-align: center;
+    margin-top: 5px;
+    text-decoration:underline;
+
+}
+.avatar-setumai{
+    text-align: center;
+    margin: 1px 20px;
+    border-width: 4px;
+    border-color: rgba(255, 255, 255, 0.61);;
+    border-style: dashed;
+}
+
+/*デスクトップ版--------------------------------------------------------*/
+@media(min-width: 800px){
+    .avatar-img img{
+        width: 25%;
+    }
+    .avatar-setumai{
+        text-align: center;
+        margin: 1px 300px;
+        margin-bottom: 100px;
+        border-width: 4px;
+        border-color: rgba(255, 255, 255, 0.61);;
+        border-style: dashed;
+    }
+
+}
