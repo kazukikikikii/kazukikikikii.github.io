@@ -83,7 +83,8 @@
 
                 const optionTexts = ['apply', 'somewhat apply', 'somewhat not apply', 'not apply'];
                 const optionLabels = question.name.startsWith('q1') || question.name.startsWith('q2') || question.name.startsWith('q4') || question.name.startsWith('q8') || question.name.startsWith('q9') || question.name.startsWith('q11') 
-                    : ['あてはまる', 'ややあてはまる', 'ややあてはまらない', 'あてはまらない'];
+                ?['あてはまる', 'ややあてはまる', 'ややあてはまらない', 'あてはまらない']
+                : ['あてはまる', 'ややあてはまる', 'ややあてはまらない', 'あてはまらない'];
 
                 optionTexts.forEach((value, idx) => {
                     const id = `${question.name}_${value}`;
