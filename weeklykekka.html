@@ -65,9 +65,9 @@
         <div class="chart-container">
             <canvas id="resultsChart"></canvas>
         </div>
-                <div class="buttons">
-        <button onclick="location.href='homegamen.html'">ホーム画面</button>
-    </div>
+        <div class="buttons">
+            <button onclick="location.href='homegamen.html'">ホーム画面</button>
+        </div>
         <div class="buttons">
             <button id="clearHistoryButton">履歴を削除する</button>
         </div>
@@ -82,8 +82,10 @@
 
             let storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
             let latestResult = {};
+            let previousResult = {};
             let labels = [];
-            let data = [];
+            let latestData = [];
+            let previousData = [];
 
             if (storedResults.length > 0) {
                 latestResult = storedResults[storedResults.length - 1];
@@ -110,7 +112,7 @@
                     resultsContainer.appendChild(resultParagraph);
 
                     labels.push(questionText);
-                    data.push(score);
+                    latestData.push(score);
 
                     totalScore += score;
                 }
@@ -120,10 +122,14 @@
                 summaryContainer.appendChild(summaryParagraph);
 
                 if (storedResults.length > 1) {
-                    const previousResult = storedResults[storedResults.length - 2];
+                    previousResult = storedResults[storedResults.length - 2];
                     let previousTotalScore = 0;
                     for (let score of Object.values(previousResult)) {
                         previousTotalScore += score;
+                    }
+
+                    for (let question of Object.keys(latestResult)) {
+                        previousData.push(previousResult[question]);
                     }
 
                     let comment;
@@ -135,9 +141,14 @@
                         comment = '前回と同じポイントです。';
                     }
                     commentContainer.textContent = comment;
+                } else {
+                    previousData = latestData.map(() => 0); // 初回は前回データを0にする
                 }
             } else {
                 resultsContainer.textContent = '結果がありません。';
+                labels = ['No Data'];
+                latestData = [0];
+                previousData = [0];
             }
 
             const resultsChart = new Chart(resultsChartCtx, {
@@ -145,10 +156,16 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: '得点',
-                        data: data,
+                        label: '今回の得点',
+                        data: latestData,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '前回の得点',
+                        data: previousData,
+                        backgroundColor: 'rgba(192, 75, 75, 0.2)',
+                        borderColor: 'rgba(192, 75, 75, 1)',
                         borderWidth: 1
                     }]
                 },
