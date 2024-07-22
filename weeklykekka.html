@@ -109,15 +109,28 @@
                 25: 'あてはまらない'
             };
 
+            const specialScoreToText = {
+                25: 'あてはまる',
+                50: 'ややあてはまる',
+                75: 'あまりあてはまらない',
+                100: 'あてはまらない'
+            };
+
             if (storedResults.length > 0) {
                 latestResult = storedResults[storedResults.length - 1];
                 if (storedResults.length > 1) {
                     previousResult = storedResults[storedResults.length - 2];
                 }
 
+                let questionIndex = 0;
                 for (let question in latestResult) {
                     const questionText = questionTexts[question];
-                    const resultText = scoreToText[latestResult[question]];
+                    let resultText;
+                    if (questionIndex === 0) {
+                        resultText = specialScoreToText[latestResult[question]];
+                    } else {
+                        resultText = scoreToText[latestResult[question]];
+                    }
 
                     const resultParagraph = document.createElement('p');
                     resultParagraph.textContent = `${questionText}: ${resultText}`;
@@ -131,6 +144,8 @@
                     } else {
                         previousData.push(0); // 前回データがない場合は0とする
                     }
+
+                    questionIndex++;
                 }
 
                 if (storedResults.length > 1) {
