@@ -102,6 +102,13 @@
                 'q12': '打ち込める趣味がある'
             };
 
+            const scoreToText = {
+                100: 'あてはまる',
+                75: 'ややあてはまる',
+                50: 'あまりあてはまらない',
+                25: 'あてはまらない'
+            };
+
             if (storedResults.length > 0) {
                 latestResult = storedResults[storedResults.length - 1];
                 if (storedResults.length > 1) {
@@ -110,9 +117,10 @@
 
                 for (let question in latestResult) {
                     const questionText = questionTexts[question];
+                    const resultText = scoreToText[latestResult[question]];
 
                     const resultParagraph = document.createElement('p');
-                    resultParagraph.textContent = questionText;
+                    resultParagraph.textContent = `${questionText}: ${resultText}`;
                     resultsContainer.appendChild(resultParagraph);
 
                     labels.push(questionText);
