@@ -83,9 +83,11 @@
             let storedResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
             let latestResult = {};
             let previousResult = {};
+            let secondPreviousResult = {};
             let labels = [];
             let latestData = [];
             let previousData = [];
+            let secondPreviousData = [];
 
             const questionTexts = {
                 'q1': '考えすぎて眠れない日がある',
@@ -121,6 +123,9 @@
                 if (storedResults.length > 1) {
                     previousResult = storedResults[storedResults.length - 2];
                 }
+                if (storedResults.length > 2) {
+                    secondPreviousResult = storedResults[storedResults.length - 3];
+                }
 
                 let questionIndex = 0;
                 for (let question in latestResult) {
@@ -145,26 +150,36 @@
                         previousData.push(0); // 前回データがない場合は0とする
                     }
 
+                    if (secondPreviousResult[question] !== undefined) {
+                        secondPreviousData.push(secondPreviousResult[question]);
+                    } else {
+                        secondPreviousData.push(0); // 前々回データがない場合は0とする
+                    }
+
                     questionIndex++;
                 }
 
                 if (storedResults.length > 1) {
                     let totalScore = 0;
                     let previousTotalScore = 0;
+                    let secondPreviousTotalScore = 0;
                     for (let score of Object.values(latestResult)) {
                         totalScore += score;
                     }
                     for (let score of Object.values(previousResult)) {
                         previousTotalScore += score;
                     }
+                    for (let score of Object.values(secondPreviousResult)) {
+                        secondPreviousTotalScore += score;
+                    }
 
                     let comment;
-                    if (totalScore > previousTotalScore) {
+                    if (totalScore > previousTotalScore && previousTotalScore > secondPreviousTotalScore) {
                         comment = '前回より良くなってますね！素晴らしいです！';
-                    } else if (totalScore < previousTotalScore) {
+                    } else if (totalScore < previousTotalScore && previousTotalScore < secondPreviousTotalScore) {
                         comment = '前回より結果が低いです...心配です...';
                     } else {
-                        comment = '前回と同じポイントです。';
+                        comment = '前回と同じ結果です！';
                     }
                     commentContainer.textContent = comment;
                 }
@@ -173,6 +188,7 @@
                 labels = ['No Data'];
                 latestData = [0];
                 previousData = [0];
+                secondPreviousData = [0];
             }
 
             const resultsChart = new Chart(resultsChartCtx, {
@@ -180,16 +196,22 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: '今回の得点',
+                        label: '今回の結果',
                         data: latestData,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     }, {
-                        label: '前回の得点',
+                        label: '前回の結果',
                         data: previousData,
                         backgroundColor: 'rgba(192, 75, 75, 0.2)',
                         borderColor: 'rgba(192, 75, 75, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '前々回の結果',
+                        data: secondPreviousData,
+                        backgroundColor: 'rgba(75, 75, 192, 0.2)',
+                        borderColor: 'rgba(75, 75, 192, 1)',
                         borderWidth: 1
                     }]
                 },
