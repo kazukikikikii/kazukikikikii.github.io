@@ -108,18 +108,15 @@
                     previousResult = storedResults[storedResults.length - 2];
                 }
 
-                let totalScore = 0;
                 for (let question in latestResult) {
-                    const score = latestResult[question];
                     const questionText = questionTexts[question];
 
                     const resultParagraph = document.createElement('p');
-                    resultParagraph.textContent = `${questionText}: ${score}点`;
+                    resultParagraph.textContent = questionText;
                     resultsContainer.appendChild(resultParagraph);
 
                     labels.push(questionText);
-                    latestData.push(score);
-                    totalScore += score;
+                    latestData.push(latestResult[question]);
 
                     if (previousResult[question] !== undefined) {
                         previousData.push(previousResult[question]);
@@ -128,12 +125,12 @@
                     }
                 }
 
-                const summaryParagraph = document.createElement('p');
-                summaryParagraph.textContent = `総合得点: ${totalScore}点`;
-                summaryContainer.appendChild(summaryParagraph);
-
                 if (storedResults.length > 1) {
+                    let totalScore = 0;
                     let previousTotalScore = 0;
+                    for (let score of Object.values(latestResult)) {
+                        totalScore += score;
+                    }
                     for (let score of Object.values(previousResult)) {
                         previousTotalScore += score;
                     }
