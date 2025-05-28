@@ -137,7 +137,16 @@ img {
 }
 
 /*デスクトップ版--------------------------------------------------------*/
-
+@media(min-width: 800px){
+    /*アバター*/
+    .avatar{
+        text-align: center;
+        margin-top: 20px;
+    }
+    .avatar_images{
+        width: 15%;
+        height: 15%;
+    }
 
     /*メニュー*/
     .menu-img{
